@@ -1,14 +1,30 @@
 <template>
-  <div>HomePage</div>
+  <div class="container">
+    <HomeSlideSection />
+    <SpotLightSection />
+    <TrailersSection />
+    <NewsFeedVue />
+    <TweetsSection />
+    <BlogSection />
+  </div>
 </template>
 
 <script>
-import FooterVue from '../components/Footer.vue'
-import HeaderVue from '../components/Header.vue'
+import BlogSectionVue from '../sections/BlogSection.vue'
+import HomeSlideSectionVue from '../sections/HomeSlideSection.vue'
+import NewsFeedVue from '../sections/NewsFeed.vue'
+import SpotLightSectionVue from '../sections/SpotLightSection.vue'
+import TrailersSectionVue from '../sections/TrailersSection.vue'
+import TweetsSectionVue from '../sections/TweetsSection.vue'
+
 export default {
     components:{
-        Header: HeaderVue,
-        Footer: FooterVue
+      HomeSlideSection: HomeSlideSectionVue,
+      SpotLightSection: SpotLightSectionVue,
+      TrailersSection: TrailersSectionVue,
+      NewsFeedVue,
+      TweetsSection: TweetsSectionVue,
+      BlogSection: BlogSectionVue
     }
 }
 </script>
