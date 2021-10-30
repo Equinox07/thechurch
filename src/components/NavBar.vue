@@ -1,8 +1,7 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Popover class="relative bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+  <Popover class="bg-white border-b-2 border-gray-100 fixed inset-x-0">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <a href="#">
             <span class="sr-only">Workflow</span>

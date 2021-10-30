@@ -1,7 +1,9 @@
 <template>
     <NavBar />
-    <Header />
+    <!-- <Header /> -->
+    <div class=" pt-24 w-full">
       <router-view></router-view>
+    </div>
     <Footer />
 </template>
 
