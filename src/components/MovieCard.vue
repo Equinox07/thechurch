@@ -1,14 +1,14 @@
 <template>
-    <div class="w-full border border-gray-100">
-      <div class="antialiased text-gray-900 w-full">
-        <div>
+    <div class="w-full border border-gray-100" style="height:450px">
+      <div class="antialiased text-gray-900 w-full h-full">
+        <div class=" h-full">
           <img
             src="https://source.unsplash.com/random/350x350"
             alt=" random imgee"
-            class="w-full object-cover object-center h-80"
+            class="w-full h-full object-cover object-center"
           />
 
-          <div>
+          <!-- <div>
             <div class="bg-white px-2 py-5">
               <h4
                 class="
@@ -36,7 +36,7 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

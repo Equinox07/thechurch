@@ -2,29 +2,19 @@
   <Popover class="bg-white border-b-2 border-gray-100 fixed inset-x-0">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-        <div class="flex justify-start lg:w-0 lg:flex-1">
-          <a href="#">
-            <span class="sr-only">Workflow</span>
-            <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
-          </a>
-        </div>
-        <div class="-mr-2 -my-2 md:hidden">
-          <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-            <span class="sr-only">Open menu</span>
-            <MenuIcon class="h-6 w-6" aria-hidden="true" />
-          </PopoverButton>
-        </div>
-        <PopoverGroup as="nav" class="hidden md:flex space-x-10">
+        <div class="flex justify-start space-x-5 items-center lg:w-0 lg:flex-1">
+          <PopoverGroup as="nav" class="hidden md:flex space-x-10">
           <Popover class="relative" v-slot="{ open }">
-            <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
-              <span>Solutions</span>
-              <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" />
+            <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none']">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
             </PopoverButton>
 
             <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-              <PopoverPanel class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+              <PopoverPanel class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-xs sm:px-0 lg:ml-0">
+                <div class=" ring-1 ring-black ring-opacity-5 overflow-hidden">
+                  <div class="relative grid gap-6 bg-gray-100 px-5 py-6 sm:gap-8 sm:p-8">
                     <a v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                       <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
                       <div class="ml-4">
@@ -37,73 +27,41 @@
                       </div>
                     </a>
                   </div>
-                  <div class="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                    <div v-for="item in callsToAction" :key="item.name" class="flow-root">
-                      <a :href="item.href" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
-                        <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                        <span class="ml-3">{{ item.name }}</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </PopoverPanel>
-            </transition>
-          </Popover>
-
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-            Pricing
-          </a>
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-            Docs
-          </a>
-
-          <Popover class="relative" v-slot="{ open }">
-            <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
-              <span>More</span>
-              <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" />
-            </PopoverButton>
-
-            <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-              <PopoverPanel class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                    <a v-for="item in resources" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">
-                          {{ item.name }}
-                        </p>
-                        <p class="mt-1 text-sm text-gray-500">
-                          {{ item.description }}
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                    <div>
-                      <h3 class="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                        Recent Posts
-                      </h3>
-                      <ul role="list" class="mt-4 space-y-4">
-                        <li v-for="post in recentPosts" :key="post.id" class="text-base truncate">
-                          <a :href="post.href" class="font-medium text-gray-900 hover:text-gray-700">
-                            {{ post.name }}
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="mt-5 text-sm">
-                      <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
-                    </div>
-                  </div>
                 </div>
               </PopoverPanel>
             </transition>
           </Popover>
         </PopoverGroup>
+          <a href="#">
+            <span class="sr-only">Workflow</span>
+            <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
+          </a>
+        </div>
+
+        <div class=" relative rounded-full">
+          <div class="absolute inset-y-0 left-0 flex items-center">
+            <label for="currency" class="sr-only">Currency</label>
+            <select id="currency" name="currency" class=" cursor-pointer h-full py-0 px-4 rounded-tl-full rounded-bl-full border border-gray-300 appearance-none outline-none bg-white text-gray-500 sm:text-sm">
+              <option>Movies</option>
+              <option>Celebrities</option>
+              <option>Genre</option>
+              <option>Trailers</option>
+            </select>
+          </div>
+          <input type="text" placeholder="Search here..." class=" text-sm text-gray-500 appearance-none outline-none border border-gray-300 rounded-full pl-28 py-2 "/>
+          <div class="absolute inset-y-0 right-0 px-2 flex items-center pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          </div>
+        </div>
+        
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-            Welcome Guest Login
+          <a href="#" class= "flex space-x-3 items-center text-gray-500 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <div class="whitespace-nowrap text-sm font-medium text-gray-500 group-hover:text-gray-900">Welcome Guest Login</div>
           </a>
         </div>
       </div>
@@ -135,32 +93,6 @@
               </nav>
             </div>
           </div>
-          <div class="py-6 px-5 space-y-6">
-            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Pricing
-              </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Docs
-              </a>
-              <a v-for="item in resources" :key="item.name" :href="item.href" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                {{ item.name }}
-              </a>
-            </div>
-            <div>
-              <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                Sign up
-              </a>
-              <p class="mt-6 text-center text-base font-medium text-gray-500">
-                Existing customer?
-                {{ ' ' }}
-                <a href="#" class="text-indigo-600 hover:text-indigo-500">
-                  Sign in
-                </a>
-              </p>
-            </div>
-          </div>
         </div>
       </PopoverPanel>
     </transition>
@@ -182,7 +114,8 @@ import {
   SupportIcon,
   ViewGridIcon,
   XIcon,
-  UsersIcon
+  UsersIcon,
+  SearchCircleIcon
 } from '@heroicons/vue/outline'
 import { ChevronDownIcon } from '@heroicons/vue/solid'
 
@@ -213,36 +146,6 @@ const solutions = [
     icon: RefreshIcon,
   },
 ]
-const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-]
-const resources = [
-  {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: SupportIcon,
-  },
-  {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
-    icon: BookmarkAltIcon,
-  },
-  {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon,
-  },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
-]
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
-]
 
 export default {
   components: {
@@ -257,9 +160,6 @@ export default {
   setup() {
     return {
       solutions,
-      callsToAction,
-      resources,
-      recentPosts,
     }
   },
 }

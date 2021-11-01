@@ -1,6 +1,6 @@
 <template>
   <div class=" flex space-x-8 items-center">
-      <div v-for="tab in tabs" :key="tab.id" :class="tab.id===selected ? 'border-b border-gray-400' : ''" @click="changeTab(tab)">
+      <div v-for="tab in tabs" :key="tab.id" :class="tab.id===selected ? 'border-b-2 border-orange-400' : ''" @click="changeTab(tab)">
           <div class=" cursor-pointer text-lg font-normal">{{ tab.name }}</div>
       </div>
   </div>
