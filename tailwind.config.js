@@ -9,9 +9,14 @@ module.exports = {
       black : colors.black,
       orange : colors.orange,
       gray : colors.gray,
-      red : colors.red
+      red : colors.red,
+      yellow :colors.yellow
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('https://source.unsplash.com/random/1280x100')"
+       }
+    },
   },
   variants: {
     extend: {},

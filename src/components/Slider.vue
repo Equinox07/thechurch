@@ -1,6 +1,6 @@
 <template>
-  <div class=" w-full flex">
-      <div v-for="n in 5" :key="n" class=" w-1/5">
+  <div class=" w-full flex overflow-x-auto slick-carousel">
+      <div v-for="n in 8" :key="n" class=" w-1/5 flex-shrink-0">
         <MovieCard />
       </div>
   </div>
@@ -16,5 +16,12 @@ export default {
 </script>
 
 <style>
-
+.slick-carousel::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.slick-carousel {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 </style>

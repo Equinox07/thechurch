@@ -1,5 +1,5 @@
 <template>
-  <Popover class="bg-white border-b-2 border-gray-100 fixed inset-x-0">
+  <Popover class="bg-white border-b-2 border-gray-100 fixed inset-x-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
         <div class="flex justify-start space-x-5 items-center lg:w-0 lg:flex-1">
@@ -12,18 +12,17 @@
             </PopoverButton>
 
             <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-              <PopoverPanel class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-xs sm:px-0 lg:ml-0">
-                <div class=" ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div class="relative grid gap-6 bg-gray-100 px-5 py-6 sm:gap-8 sm:p-8">
-                    <a v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">
+              <PopoverPanel class="absolute -ml-4 mt-3 px-2 w-screen max-w-xs sm:px-0 lg:ml-0">
+                <div class=" overflow-hidden">
+                  <div class="grid gap-5 bg-gray-100 sm:gap-8 py-8">
+                    <a v-for="item in menu" :key="item.name" :href="item.href" class="-m-3 py-3 flex items-start px-8 hover:bg-white">
+                      <div class="ml-4 flex justify-between w-full">
+                        <p class="text-sm font-normal text-gray-700">
                           {{ item.name }}
                         </p>
-                        <p class="mt-1 text-sm text-gray-500">
-                          {{ item.description }}
-                        </p>
+                        <svg v-if="item.submenu && item.submenu.length>0" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
                     </a>
                   </div>
@@ -61,7 +60,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            <div class="whitespace-nowrap text-sm font-medium text-gray-500 group-hover:text-gray-900">Welcome Guest Login</div>
+            <div class="whitespace-nowrap text-sm font-medium text-gray-500 group-hover:text-gray-900">Welcome Guest!  <span class=" cursor-pointer text-black font-semibold">Login</span></div>
           </a>
         </div>
       </div>
@@ -84,7 +83,7 @@
             </div>
             <div class="mt-6">
               <nav class="grid gap-y-8">
-                <a v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                <a v-for="item in menu" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                   <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
                   <span class="ml-3 text-base font-medium text-gray-900">
                     {{ item.name }}
@@ -119,31 +118,52 @@ import {
 } from '@heroicons/vue/outline'
 import { ChevronDownIcon } from '@heroicons/vue/solid'
 
-const solutions = [
+const menu = [
   {
-    name: 'Analytics',
-    description: 'Get a better understanding of where your traffic is coming from.',
+    name: 'Home',
     href: '#',
-    icon: ChartBarIcon,
+    submenu : [
+      {
+        name :'Latest Movies',
+        href : '#'
+      }
+    ]
   },
   {
-    name: 'Engagement',
-    description: 'Speak directly to your customers in a more meaningful way.',
+    name: 'Movies',
     href: '#',
-    icon: CursorClickIcon,
   },
-  { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
+  { 
+    name: 'Genre', 
+    href: '#', 
+  },
   {
     name: 'Integrations',
-    description: "Connect with third-party tools that you're already using.",
     href: '#',
-    icon: ViewGridIcon,
   },
   {
-    name: 'Automations',
-    description: 'Build strategic funnels that will drive your customers to convert',
+    name: 'Celebrities',
     href: '#',
-    icon: RefreshIcon,
+  },
+  {
+    name: 'Page',
+    href: '#',
+  },
+  {
+    name: 'Blog List',
+    href: '#',
+  },
+  {
+    name: 'Post Formats',
+    href: '#',
+  },
+  {
+    name: 'Joomla!',
+    href: '#',
+  },
+  {
+    name: 'Romantic',
+    href: '#',
   },
 ]
 
@@ -159,7 +179,7 @@ export default {
   },
   setup() {
     return {
-      solutions,
+      menu,
     }
   },
 }

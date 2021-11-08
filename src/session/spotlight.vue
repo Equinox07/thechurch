@@ -2,7 +2,7 @@
   <div>
       <Tabs :tabs="tabs" :selected="selected" @changeTab="changeTab"/>
 
-      <div class=" flex space-x-5 mt-10">
+      <div class=" flex space-x-1 mt-10">
           <div v-for="n in 4" :key="n" class="w-1/4">
             <MovieCard />
           </div>
